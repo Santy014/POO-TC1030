@@ -8,16 +8,18 @@ using namespace std;
 class Arma : public Equipamiento {
 public:
     int dano;
+    int municion; 
+    string tipoDano; 
+    string tipoArma;
 
-    // Constructor completo
-    Arma(string n, string d, int id, float p, int dura, int dano)
-        : Equipamiento(n, d, id, p, dura ), dano(dano) {}
 
-    // Constructor sobrecargado (versión mínima)
-    Arma(string n, float p, int dano)
-        : Equipamiento(n, ".", 0, p, 100), dano(dano) {}
+    Arma(string n, string d, int id, float p, int dura, int da, int mun, string tD, string tA)
+        : Equipamiento(n, d, id, p, dura), dano(da), municion(mun), tipoDano(tD), tipoArma(tA) {}
 
-    void usararma() {
+    Arma(string n, float p, int da)
+        : Equipamiento(n, ".", 0, p, 100), dano(da), municion(0), tipoDano(""), tipoArma("") {}
+
+    void usar() {
         cout << "Atacaste con " << nombre << " causando " << dano << " de dano." << endl;
         durabilidad--;
     }

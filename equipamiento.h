@@ -16,13 +16,11 @@ public:
     Equipamiento(string n, string d, int id, float p, int dura)
     : Item(n, d, id, p), durabilidad(dura), tipoSlot(".") {}
 
-
-    void equipar() {
-        cout << "Equipaste " << nombre << " en el slot: " << tipoSlot << endl;
-    }
-
     int getDurabilidad() const {
         return durabilidad;
+    }
+     void usar()  {
+        cout << "Equipaste " << nombre << " en el slot: " << tipoSlot << endl;
     }
 };
 
