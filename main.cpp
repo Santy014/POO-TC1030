@@ -1,30 +1,24 @@
 #include <iostream>
-using namespace std;
 #include "Item.h"
 #include "Consumible.h"
-#include "PocionSalud.h"
 #include "Equipamiento.h"
-#include "Arma.h"
-#include "Armadura.h"
+#include "inventario.h"
 
+using namespace std;
 
 int main() {
-    // Crear objetos de cada una de las clases
-    Item* item1 = new PocionSalud("Pocion de vida", "Restaura vida", 1, 25, 0.0f, 50);
-    Item* item2 = new Arma("Espada corta", "Espada basica", 2, 100, 50, 15, 0, "corte", "espada");
-    Item* item3 = new Armadura("Armadura de cuero", "Protege como pechera", 3, 75, 40, "fisica", 0.15f, "Pecho");
-    Item* item4 = new Item("telescopio movil", "Un objeto mistico", 4, 10);
+    inventario inv;
 
-    cout << "--- Ejemplo de Uso de distintos objetos de inventario ---\n" << endl;
+    Arma* espada = new Arma("Espada Fuerte", "Una espada filosa que derrota a los mas grandes enemigos", 12356, 45, false, 1, 100, 50, 0, "Fisico", "Espada", "Arma");
+    Arma* vara = new Arma("Varita Magica", "Una poderosa varita magica", 22356, 100, false, 1, 80, 30, 10, "Magico", "Vara", "Arma");
+    PocionSalud* pociongrande = new PocionSalud("Pocion Grande", "Una pocion grande que te cura 200 de vida", 12324, 20, 1, 200);
 
-    item1->usar();
-    cout << "-----------------------------\n";
-    item2->usar();
-    cout << "-----------------------------\n";
-    item3->usar();
-    cout << "-----------------------------\n";
-    item4->usar();
-    cout << "-----------------------------\n";
+    inv.agregarItem(espada);
+    inv.agregarItem(vara);
+    inv.agregarItem(pociongrande);
+
+    inv.mostrarInv();
+    inv.UsarItem();
 
     return 0;
 }
